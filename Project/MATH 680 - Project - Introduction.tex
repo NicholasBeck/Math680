@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.jpg,.pdf}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage[round]{natbib}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage{slashbox}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{tensor}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{dsfont}
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=cyan}
+\hypersetup{pdfstartview=FitH}
+\hypersetup{pdfpagemode=UseNone}
+\numberwithin{equation}{section}
+\DeclareGraphicsExtensions{.jpg,.pdf}
+\allowdisplaybreaks[4]
+\usepackage{geometry}
+\geometry{margin=0.35in}
+\geometry{bmargin=0.75in}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Pb}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\B}{\mathcal B}
+\newcommand{\var}{\mathrm{var}}
+
+\defcitealias{solv2}{Solvency {II} (2016)}
+\begin{document}
+\section{Introduction}
+The evaluation risk is crucial in the insurance industry. Companies are tasked with dealing with a multitude of potential risks on a day to day basis. Whether it be for capital allocation where laws are becoming more and more stringent, as outline in recent regulatory documents  \citetalias{solv2} or \cite{OSFI2015}, or for the pricing of products, being able to accurately evaluate the associated risks is paramount to their success as businesses. In this project, we focus on the pricing of insurance premiums in a property and casualty scenario. When considering a policy holder's portfolio, the total loss associated to it is often modelled using a compound distribution, i.e. something of the form
+$$
+S=\left\{\begin{array}{ll}\sum_{i=1}^NX_i & \text{if }N>0\\0 & \text{if }N=0\end{array}\right.,
+$$
+where the random variables $X_i\sim X$ for all $i$ denote the severity distributions, that is the amount of each individual claim, and $N$ denotes the frequency distribution, that is the number of claims made by each policyholder. Pricing an individuals policy premium is often calculated using the expected loss of the portfolio. There are a variety of models that exist in this context. The oft-used choice of compound model is taking $X\sim Ga(\alpha,\beta)$ and $N\sim Pois(\lambda)$. This combination of these severity and frequency random variables results in what is known as the tweedie distribution. The tweedie GLM is widely used in actuarial science, for instance in \cite{murphy2000using} or \cite{peters2008model}. Two advantages associated to the tweedie are its ability to model the zero claims (of which there are many in a property casualty context, say in car insurance) as well as the non-zero claims.
+While a strong choice for such a scenario, the model is not without fault. As outlined by \cite{yang2016insurance}, 
+\bibliographystyle{plainnat}
+\bibliography{ProjectRef}
+\end{document} 
