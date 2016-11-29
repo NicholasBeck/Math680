@@ -11,7 +11,6 @@ library(MASS)
 source("aobjects.R")
 source("kernels.R")
 source("kernelmatrix.R")
-sourceCpp('NewtonRcpp.cpp')
 
 TweedieKERE <- function(X, Y, lambda=1, rho=1.5, phi=1, sig=1){
   ## Setup the kernel matrix
@@ -21,10 +20,12 @@ TweedieKERE <- function(X, Y, lambda=1, rho=1.5, phi=1, sig=1){
   ## Setup more values
   n <- nrow(X) ## Row, Col
   alpha <- seq(0, 1, length.out=n)
-  ## CALL THE C CODE
   
-  NRCpp(Kmat,alpha,Y,rho,lambda)
+  ## CALL THE C CODE
+  NRCpp(Kmat,alpha,Y,rho,lambda,n)
 
 }
 
+sourceCpp('NewtonRcpp.cpp')
 TweedieKERE(X,Y)
+system.time(TweedieKERE(X,Y))

@@ -19,8 +19,7 @@ arma::mat hessCpp(arma::mat Kmat, arma::vec alpha, arma::vec Y, double rho, doub
 
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
-arma::vec NRCpp(arma::mat Kmat, arma::vec alpha_start, arma::vec Y, double rho, double lambda){
-int n=Kmat.n_rows;
+arma::vec NRCpp(arma::mat Kmat, arma::vec alpha_start, arma::vec Y, double rho, double lambda,int n){
 arma::vec grad=arma::ones<arma::vec>(n);
 arma::vec update(n);
 arma::vec alpha=alpha_start;
