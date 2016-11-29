@@ -19,12 +19,12 @@ TweedieKERE <- function(X, Y, lambda=1, rho=1.5, phi=1, sig=1){
   Kmat <- kernelMatrix(kern,X) ## symemtric matrix, k(x_i,x_j) = k(x_j,x_i)
   
   ## Setup more values
-  dimsX <- dim(X) ## Row, Col
-  alpha <- seq(0, 1, length.out=dimsX[1])
+  n <- nrow(X) ## Row, Col
+  alpha <- seq(0, 1, length.out=n)
   ## CALL THE C CODE
   
-  NRCpp(Kmat,alpha,Y,rho,lamda)
+  NRCpp(Kmat,alpha,Y,rho,lambda)
 
 }
 
-Tweedie(X,Y)
+TweedieKERE(X,Y)
