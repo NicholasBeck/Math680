@@ -2,11 +2,11 @@
 using namespace Rcpp;
 using namespace arma;
 
-// [[Rcpp::depends(RcppArmadillo)]]
-// [[Rcpp::export]]
-arma::vec fh(arma::mat Kmat, arma::vec alpha){
-  return Kmat * alpha;
-}
+// // [[Rcpp::depends(RcppArmadillo)]]
+// // [[Rcpp::export]]
+// arma::vec fh(arma::mat Kmat, arma::vec alpha){
+//   return Kmat * alpha;
+// }
 
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
