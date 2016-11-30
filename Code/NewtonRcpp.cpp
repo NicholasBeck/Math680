@@ -18,7 +18,7 @@ arma::vec gradCpp(arma::mat Kmat, arma::vec fhats, arma::vec Y, double rho, doub
 // [[Rcpp::export]]
 // matrix of second partial derivatives of the log-likelihood + penalty term
 arma::mat hessCpp(arma::mat Kmat, arma::vec fhats, arma::vec Y, double rho, double lambda){
-  return Kmat * diagmat((2-rho)*exp((2-rho)*fhats)-(1-rho)*Y%exp((1-rho)*fhats))*Kmat + lambda*Kmat;
+  return (Kmat * diagmat((2-rho)*exp((2-rho)*fhats)-(1-rho)*Y%exp((1-rho)*fhats)) + lambda)*Kmat;
 }
 
 // [[Rcpp::depends(RcppArmadillo)]]
