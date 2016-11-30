@@ -11,7 +11,7 @@ using namespace arma;
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
 arma::vec gradCpp(arma::mat Kmat, arma::vec fhats, arma::vec Y, double rho, double lambda){
-  return Kmat*(exp((2-rho)*fhats)-Y%exp((1-rho)*fhats))+2*lambda*fhats;
+  return Kmat*(exp((2-rho)*fhats)-Y%exp((1-rho)*fhats))+lambda*fhats;
 }
 
 // [[Rcpp::depends(RcppArmadillo)]]
