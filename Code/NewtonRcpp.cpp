@@ -24,7 +24,7 @@ arma::mat hessCpp(arma::mat Kmat, arma::vec fhats, arma::vec Y, double rho, arma
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
 arma::vec NRCpp(arma::mat Kmat, arma::vec alpha_start, arma::vec Y, double rho, double lambda, int n){
-arma::vec grad=arma::ones<arma::vec>(n);
+arma::vec grad(n);
 arma::vec update(n);
 arma::vec alpha=alpha_start;
 arma::vec fhats(n);
@@ -36,7 +36,7 @@ while(check > pow(10,-5)) {
     grad = gradCpp(Kmat,fhats,Y,rho,lambda);
     update = inv(hessCpp(Kmat,fhats,Y,rho,dlam))*grad;
     alpha -= update;
-    check = accu(grad%grad);
+    check = dot(grad,grad);
     i+=1;
   }
 return alpha;
